@@ -1,22 +1,26 @@
+// Wait until the page is fully loaded before running any code
 document.addEventListener("DOMContentLoaded", () => {
 
-
+  // Welcome message 
   const welcomeMessageEl = document.getElementById("welcome-message");
   if (welcomeMessageEl) {
+    // Function to update the welcome message with current date and time
     function updateWelcomeMessage() {
       const now = new Date();
       welcomeMessageEl.textContent = `Welcome to California! Today is ${now.toDateString()}, ${now.toLocaleTimeString()}`;
     }
+    // Call it immediately and then update every second
     setInterval(updateWelcomeMessage, 1000);
     updateWelcomeMessage();
   }
 
-
+  // Hero section background rotation 
   const hero = document.querySelector(".hero");
   if (hero) {
-    const heroImages = ["hero1.jpg", "hero.jpg", "hero3.jpg"];
-    let heroIndex = 0;
+    const heroImages = ["hero1.jpg", "hero.jpg", "hero3.jpg"]; // Background images
+    let heroIndex = 0; // Start with first image
 
+    // Function to update hero background
     function updateHeroBackground() {
       hero.style.background = `
         linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
@@ -24,8 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
-    updateHeroBackground();
+    updateHeroBackground(); // Show initial background
 
+    // Next / Previous buttons for hero images
     const heroNext = document.querySelector(".hero-next");
     const heroPrev = document.querySelector(".hero-prev");
 
@@ -41,20 +46,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // ---------- Color change button ----------
   const colorBtn = document.getElementById("colorBtn");
   if (colorBtn) {
+    // When clicked, change page background to a random color
     colorBtn.addEventListener("click", () => {
       const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
       document.body.style.backgroundColor = randomColor;
     });
   }
 
+  // ---------- History, attractions, and fun facts ----------
   const historyEl = document.getElementById("history");
   const attractionsEl = document.getElementById("attractions");
   const funFactBox = document.getElementById("funFact");
   const toggleBtn = document.getElementById("toggleBtn");
 
   if(historyEl && attractionsEl && funFactBox && toggleBtn) {
+    // Some content for history and attractions
     const destination = {
       history: `
         <p>California's history is rich and diverse, shaped by Native American civilizations, Spanish colonization, and the Gold Rush era. The state has grown into a cultural melting pot where traditions, music, and art reflect a wide variety of influences.</p>
@@ -68,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       `
     };
 
+    // Fun facts array to show random fact
     const funFacts = [
       "California produces over 90% of the United States' wine.",
       "The Hollywood Sign originally read 'Hollywoodland'.",
@@ -76,16 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
       "Lake Tahoe is the largest alpine lake in North America."
     ];
 
+    // Add content to page
     historyEl.innerHTML = destination.history;
     attractionsEl.innerHTML = destination.attractions;
 
+    // Show one random fun fact
     const randomIndex = Math.floor(Math.random() * funFacts.length);
     funFactBox.textContent = funFacts[randomIndex];
     funFactBox.style.display = "block";
 
+    // Extra paragraphs are hidden initially
     const extras = document.querySelectorAll(".extra");
     extras.forEach(el => el.style.display = "none");
 
+    // Show More / Show Less toggle
     toggleBtn.addEventListener("click", () => {
       extras.forEach(el => {
         el.style.display = (el.style.display === "none") ? "block" : "none";
@@ -94,6 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ---------- Gallery ----------
   const galleryContainer = document.getElementById("gallery");
   if(galleryContainer) {
     const galleryImages = [
@@ -111,8 +126,9 @@ document.addEventListener("DOMContentLoaded", () => {
       {src: "Rad.jpeg", caption: "Napa Valley Vineyards", category: "mountain"}
     ];
 
+    // Function to display gallery images (filtered by category)
     function displayImages(filter = "all") {
-      galleryContainer.innerHTML = "";
+      galleryContainer.innerHTML = ""; // Clear current images
       galleryImages.forEach(img => {
         if(filter === "all" || img.category === filter) {
           const div = document.createElement("div");
@@ -126,8 +142,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    displayImages(); 
+    displayImages(); // Show all images initially
 
+    // Set up filter buttons
     document.querySelectorAll(".filter-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const category = btn.getAttribute("data-category");
@@ -135,6 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
+    // Lightbox open/close functions
     window.openLightbox = function(src) {
       document.getElementById("lightbox-img").src = src;
       document.getElementById("lightbox").style.display = "flex";
@@ -145,12 +163,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-
+  // Weather
   const weatherEl = document.getElementById("weather");
   if(weatherEl) {
     const apiKey = "701ac9a86d3d412bb32155940252709"; 
     const citySelect = document.getElementById("citySelect");
 
+    // Fetch weather from API
     async function getWeather(city = "Los Angeles") {
       const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`;
       try {
@@ -168,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    // Display weather info
     function displayWeather(data) {
       weatherEl.innerHTML = `
         <div class="weather-card">
@@ -184,9 +204,9 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
+    // Load initial weather and update when city changes
     if(citySelect){
       getWeather(citySelect.value); 
-
       citySelect.addEventListener("change", (e) => {
         getWeather(e.target.value);
       });
@@ -194,3 +214,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+// Responsive Menu Toggle
+const menuIcon = document.getElementById("menu-icon");
+const navLinks = document.getElementById("nav-links");
+
+menuIcon.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+
+

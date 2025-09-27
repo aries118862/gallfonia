@@ -500,3 +500,70 @@ nav ul li a:hover{
 
   color: #ffcc00;
 }
+
+/* Media Queries for Responsiveness Only */
+
+/* Tablets / medium screens */
+@media screen and (max-width: 1024px) {
+    .gallery-container { gap: 15px; }
+    .main-container, .section-container { padding: 20px; }
+    .hero-content h1 { font-size: 3rem; }
+    .hero-content p { font-size: 1.1rem; }
+}
+
+/* Small screens / phones */
+@media screen and (max-width: 768px) {
+    .hero-content h1 { font-size: 2.5rem; }
+    .hero-content p { font-size: 1rem; padding: 0 20px; }
+    nav ul { gap: 15px; }
+    .float-img { float: none; display: block; margin: 20px auto; width: 90%; }
+    .caption { font-size: 0.9rem; }
+    .prev, .next, .hero-prev, .hero-next { font-size: 1.5rem; padding: 8px; }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero-content p { font-size: 0.9rem; }
+    .hero-content .btn { padding: 10px 20px; font-size: 0.9rem; }
+    .filter-btn, #colorBtn, .fun-button { padding: 10px 15px; font-size: 0.85rem; }
+    .gallery-container { grid-template-columns: 1fr; gap: 15px; }
+}
+
+/* ========== Responsive Navigation Menu ========== */
+
+/* Menu icon (hamburger) */
+.menu-icon {
+    display: none;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile nav hidden by default */
+#nav-links {
+    transition: max-height 0.3s ease-out;
+}
+
+@media screen and (max-width: 768px) {
+    nav ul {
+        display: none;
+        flex-direction: column;
+        background: #222;
+        position: absolute;
+        top: 65px;
+        right: 20px;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+}
