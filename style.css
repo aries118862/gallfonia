@@ -1,0 +1,502 @@
+/*Global Styling*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*body styling*/
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #000;
+    color: #333;
+}
+
+/*Navigation Ba stylingr*/
+nav {
+    background: #222;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/*logo styling*/
+
+nav .logo {
+    font-family: serif;
+    font-size: 28px;
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/*nav ul styling*/
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+/*nav ul li a styling*/
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+/*after click effect*/
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px; 
+    width: 0;
+    height: 2px;
+    background:#ffbf00;
+    transition: width 0.3s ease;
+
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after {
+    width: 100%;
+    color: #ffcc00;
+}
+
+/*Hero Section styling*/
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('hero.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    line-height: 1.8;
+}
+
+/* Pull Quote */
+.pull-quote {
+    display: block;
+    font-style: italic;
+    text-align: right;
+    margin-top: 15px;
+}
+
+/* Hero Button */
+.hero-content .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #ffd700;
+    color: #000;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: transform 0.3s, background 0.3s;
+    text-decoration: none;
+    border-bottom: 3px solid rgb(114, 114, 148);
+}
+
+.hero-content .btn:hover {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+}
+
+/*Main Content*/
+.main-container {
+    background-color: #fff;
+    color: #333;
+    border-radius: 12px;
+    border: 1px solid #ffbf00;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    text-align: justify;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.main-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+/*Footer-*/
+footer.footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+}
+
+/*Responsive Design-*/
+@media screen and (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    nav ul {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+    .hero-content .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+.fun-fact {
+    display: none;
+    margin-top: 10px;
+    background-color: #a9e8fd;
+    padding: 10px;
+    border: 1px solid  #ffbf00;
+    border-radius: 12px;
+}
+.fun-button {
+    margin: 15px 0;
+    padding: 10px 20px;
+    background-color: #ffd700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s, background 0.3s;
+    align-items: center;
+}
+.fun-button:hover {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+}
+
+/* Floating image styling*/
+.float-img {
+    float: right;
+    width: 300px;
+    margin: 0 0 20px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+}
+.float-img:hover {
+    transform: scale(1.05);
+}
+
+/* Section styling */
+.section-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f0f7f9;
+    border-radius: 12px;
+    border: 1px solid #ffd700;
+}
+.section-container h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+.section-container p {
+    text-align: justify;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+
+/* Blockquote styling */
+blockquote {
+    font-style: italic;
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border: 2px solid #ffbf00;
+    margin: 20px 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .float-img {
+        float: none;
+        display: block;
+        margin: 20px auto;
+        width: 90%;
+    }
+}
+
+/* Gallery container */
+.gallery-container {
+    max-width: 1100px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+/* Individual gallery item */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 2px solid #ffd700;
+    background-color: #fff;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.gallery-item img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    border-color: #ffbf00;
+}
+
+/* Caption overlay */
+.caption {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    transition: background 0.3s;
+}
+
+.gallery-item:hover .caption {
+    background: rgba(0,0,0,0.8);
+}
+
+/* Lightbox (simple CSS) */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+/* Close button */
+.lightbox span {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .caption {
+        font-size: 0.9rem;
+    }
+}
+nav ul li a:hover{
+    color: #ffcc00;
+}
+/* Background Color Button */
+#colorBtn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #ffd700;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+#colorBtn:hover {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+}
+
+/* Slideshow Container */
+.slideshow-container {
+    max-width: 900px;
+    position: relative;
+    margin: 40px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    border: 2px solid #ffd700;
+}
+
+/* Slide Images */
+.slide {
+    width: 100%;
+    display: none;
+    border-radius: 12px;
+}
+
+/* Navigation Buttons (Prev/Next) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.8rem;
+    border-radius: 50%;
+    user-select: none;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    transition: background 0.3s;
+}
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.prev {
+    left: 15px;
+}
+.next {
+    right: 15px;
+}
+
+/* Responsive Slideshow */
+@media screen and (max-width: 768px) {
+    .prev, .next {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+}
+/* Hero Slideshow Arrows */
+.hero-prev, .hero-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 12px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2rem;
+    border-radius: 50%;
+    user-select: none;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.hero-prev:hover, .hero-next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+.hero-prev {
+    left: 20px;
+}
+
+.hero-next {
+    right: 20px;
+}
+
+/* Gallery Filter Buttons */
+.filter-btn {
+    display: inline-block;
+    margin: 0 10px 20px 10px;
+    padding: 12px 25px;
+    background-color: #ffd700;
+    color: #000;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-family: 'Roboto', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn:focus {
+    background-color: #ffbf00;
+    transform: scale(1.05);
+    color: #000;
+}
+
+/* Active state for selected filter */
+.filter-btn.active {
+    background-color: #ffcc00;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+    .weather-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .weather-card img {
+      width: 80px;
+      height: 80px;
+    }
+    select.fun-button {
+      margin-top: 20px;
+    }
+
+.active{
+
+  color: #ffcc00;
+}
