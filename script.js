@@ -15,38 +15,45 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Hero section background rotation 
-  const hero = document.querySelector(".hero");
-  if (hero) {
-    const heroImages = ["hero1.jpg", "hero.jpg", "hero3.jpg"]; // Background images
-    let heroIndex = 0; // Start with first image
+ // Hero section background rotation 
+const hero = document.querySelector(".hero");
+if (hero) {
+  const heroImages = ["hero1.jpg", "pic.png", "hero3.jpg"]; // Background images
+  let heroIndex = 0; // Start with first image
 
-    // Function to update hero background
-    function updateHeroBackground() {
-      hero.style.background = `
-        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
-        url('${heroImages[heroIndex]}') center/cover no-repeat
-      `;
-    }
-
-    updateHeroBackground(); // Show initial background
-
-    // Next / Previous buttons for hero images
-    const heroNext = document.querySelector(".hero-next");
-    const heroPrev = document.querySelector(".hero-prev");
-
-    if (heroNext && heroPrev) {
-      heroNext.addEventListener("click", () => {
-        heroIndex = (heroIndex + 1) % heroImages.length;
-        updateHeroBackground();
-      });
-      heroPrev.addEventListener("click", () => {
-        heroIndex = (heroIndex - 1 + heroImages.length) % heroImages.length;
-        updateHeroBackground();
-      });
-    }
+  // Function to update hero background
+  function updateHeroBackground() {
+    hero.style.background = `
+      linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+      url('${heroImages[heroIndex]}') center/cover no-repeat
+    `;
   }
 
-  // ---------- Color change button ----------
+  updateHeroBackground(); // Show initial background
+
+  // Automatic hero background change every 7 seconds
+  setInterval(() => {
+    heroIndex = (heroIndex + 1) % heroImages.length;
+    updateHeroBackground();
+  }, 7000); // 7000ms = 7 seconds
+
+  // Next / Previous buttons for hero images
+  const heroNext = document.querySelector(".hero-next");
+  const heroPrev = document.querySelector(".hero-prev");
+
+  if (heroNext && heroPrev) {
+    heroNext.addEventListener("click", () => {
+      heroIndex = (heroIndex + 1) % heroImages.length;
+      updateHeroBackground();
+    });
+    heroPrev.addEventListener("click", () => {
+      heroIndex = (heroIndex - 1 + heroImages.length) % heroImages.length;
+      updateHeroBackground();
+    });
+  }
+}
+
+  // Color change button 
   const colorBtn = document.getElementById("colorBtn");
   if (colorBtn) {
     // When clicked, change page background to a random color
@@ -56,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ---------- History, attractions, and fun facts ----------
+  // History, attractions, and fun facts
   const historyEl = document.getElementById("history");
   const attractionsEl = document.getElementById("attractions");
   const funFactBox = document.getElementById("funFact");
@@ -108,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // ---------- Gallery ----------
+  //  Gallery
   const galleryContainer = document.getElementById("gallery");
   if(galleryContainer) {
     const galleryImages = [
